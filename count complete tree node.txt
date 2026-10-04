@@ -1,0 +1,13 @@
+class Solution {
+    public int countNodes(TreeNode root) {
+   if(root == null) return 0;
+   int l= 0,r=0;
+   TreeNode a= root,b=root;
+   while(a!= null){ l++;a=a.left;}
+   while(b!=null){r++;b=b.right;}
+   if(l==r) return (1<<l)-1;
+
+   
+   return 1+ countNodes(root.left)+ countNodes(root.right);     
+    }
+}
